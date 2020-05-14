@@ -19,6 +19,13 @@ Sysid                       LONG
   CODE
   
   SQLODS('Starting')  
+
+  SYSTEM{PROP:DriverTracing} = '1'
+  MSSQLTable{PROP:TraceFile} = 'DEBUG:'
+  MSSQLTable{PROP:Details}   = 1  
+  MSSQLTable{PROP:Profile}   = 'DEBUG:' 
+  MSSQLTable{PROP:LogSQL}    = 1
+  
   gMSSQLOwner = 'put your owner string here'   ! commonly used: 'serverip,databasename,username,password'
   SHARE(MSSQLTable)
   MSSQLTable{PROP:SQL} = 'select count(*) from sys.tables'
